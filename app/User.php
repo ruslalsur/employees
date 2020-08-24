@@ -36,4 +36,28 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Правила валидации
+     *
+     * @return array
+     */
+    public static function rules() {
+        return [
+            'name' => 'required|string|min:5|max:50',
+            'email' => "required|email",
+            'password' => 'required|min:3|confirmed',
+            'password_confirmation' => 'required|min:3',
+            'is_admin' => 'sometimes|in:on'
+        ];
+    }
+
+    public static function attributeNames() {
+        return [
+            'name' => 'пользователь',
+            'email' => '@email',
+            'password' => 'пароль',
+            'password_confirmation' => 'повтор пароля',
+        ];
+    }
 }
