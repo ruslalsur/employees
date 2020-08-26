@@ -6,6 +6,17 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * Модель пользователя
+ *
+ * @package App
+ * @property string last_name
+ * @property string first_name
+ * @property string middle_name
+ * @property string avatar
+ * @property string is_admin
+ */
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -16,7 +27,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'last_name', 'first_name', 'middle_name', 'is_admin', 'avatar', 'email', 'password',
     ];
 
     /**
@@ -44,7 +55,9 @@ class User extends Authenticatable
      */
     public static function rules() {
         return [
-            'name' => 'required|string|min:5|max:50',
+            'last_name' => 'string|min:5|max:50',
+            'first_name' => 'required|string|min:5|max:50',
+            'middle_name' => 'string|min:5|max:50',
             'email' => "required|email",
             'password' => 'required|min:3|confirmed',
             'password_confirmation' => 'required|min:3',
@@ -54,10 +67,14 @@ class User extends Authenticatable
 
     public static function attributeNames() {
         return [
-            'name' => 'пользователь',
+            'last_name' => 'Фамилия',
+            'first_name' => 'Имя',
+            'middle_name' => 'Отчество',
             'email' => '@email',
-            'password' => 'пароль',
-            'password_confirmation' => 'повтор пароля',
+            'password' => 'Пароль',
+            'password_confirmation' => 'Повтор пароля',
+            'is_admin' => 'Администратор',
+            'avatar' => 'Аватар'
         ];
     }
 }
