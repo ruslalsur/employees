@@ -2,6 +2,9 @@
 
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UsersSeeder extends Seeder
 {
@@ -20,7 +23,7 @@ class UsersSeeder extends Seeder
                 'email' => 'admin@admin.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('321'),
-                'remember_token' => Str::random(10),
+                'remember_token' => Str::random(60),
                 'is_admin' => true,
                 'avatar' => 'storage/images/admin.png',
                 'created_at' => now(),
@@ -33,7 +36,7 @@ class UsersSeeder extends Seeder
                 'email' => 'user@user.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('123'),
-                'remember_token' => Str::random(10),
+                'remember_token' => Str::random(60),
                 'is_admin' => false,
                 'avatar' => 'storage/images/user.png',
                 'created_at' => now(),

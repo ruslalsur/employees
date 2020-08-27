@@ -53,17 +53,17 @@ class User extends Authenticatable
      *
      * @return array
      */
-    public static function rules() {
-        return [
-            'last_name' => 'string|min:5|max:50',
-            'first_name' => 'required|string|min:5|max:50',
-            'middle_name' => 'string|min:5|max:50',
-            'email' => "required|email",
-            'password' => 'required|min:3|confirmed',
-            'password_confirmation' => 'required|min:3',
-            'is_admin' => 'sometimes|in:on'
-        ];
-    }
+//    public static function rules() {
+//        return [
+//            'last_name' => 'string|min:5|max:50',
+//            'first_name' => 'required|string|min:5|max:50',
+//            'middle_name' => 'string|min:5|max:50',
+//            'email' => "required|email",
+//            'password' => 'required|min:3|confirmed',
+//            'password_confirmation' => 'required|min:3',
+//            'is_admin' => 'sometimes|in:on'
+//        ];
+//    }
 
     public static function attributeNames() {
         return [
